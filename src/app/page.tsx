@@ -2,9 +2,10 @@ import { LineShadowText } from "@/components/magicui/line-shadow-text";
 import GetStartedModal from "./get-started";
 import { GridPattern } from "@/components/magicui/grid-pattern";
 import StaticShiningCard from "@/components/ui/static-shining-card";
-import { Github, Link } from "lucide-react";
+import { Github } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import type { Metadata } from "next";
+import Link from "next/link";
 
 export const metadata: Metadata = {
 	title: "Home", // Will be combined with layout template: "Home | GridLock"
