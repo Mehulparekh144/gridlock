@@ -2,7 +2,7 @@ import { LineShadowText } from "@/components/magicui/line-shadow-text";
 import GetStartedModal from "./get-started";
 import { GridPattern } from "@/components/magicui/grid-pattern";
 import StaticShiningCard from "@/components/ui/static-shining-card";
-import { Github } from "lucide-react";
+import { Github, Link } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import type { Metadata } from "next";
 
@@ -76,9 +76,11 @@ export default function Home() {
 					</p>
 					<div className="flex gap-2 items-center">
 						<GetStartedModal />
-						<Button variant="neutral" size="icon" className="gap-2">
-							<Github />
-							<p className="sr-only">Contribute to the project</p>
+						<Button variant="neutral" size="icon" className="gap-2" asChild>
+							<Link href="https://github.com/Mehulparekh144/gridlock">
+								<Github />
+								<p className="sr-only">Contribute to the project</p>
+							</Link>
 						</Button>
 					</div>
 				</div>
