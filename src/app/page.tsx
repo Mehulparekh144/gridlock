@@ -1,103 +1,88 @@
-import Image from "next/image";
+import { LineShadowText } from "@/components/magicui/line-shadow-text";
+import GetStartedModal from "./get-started";
+import { GridPattern } from "@/components/magicui/grid-pattern";
+import StaticShiningCard from "@/components/ui/static-shining-card";
+import { Github } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import type { Metadata } from "next";
 
+export const metadata: Metadata = {
+	title: "Home", // Will be combined with layout template: "Home | GridLock"
+	description:
+		"Generate unique Jeopardy-style trivia games instantly with GridLock's AI power. Enter a topic and get started!",
+	// openGraph and twitter tags will inherit from layout unless overridden here
+};
+
+const STATIC_SHINING_CARD_ITEMS = [
+	{
+		points: 100,
+		question: "Who is the president of the United States?",
+		className:
+			"absolute top-[15%] left-[10%] -rotate-12 w-64 h-32 md:w-72 md:h-36",
+		textSize: "text-2xl md:text-3xl",
+	},
+	{
+		points: 200,
+		question: "What is the capital of France?",
+		className:
+			"absolute top-[10%] right-[15%] rotate-6 w-64 h-32 md:w-80 md:h-40",
+		textSize: "text-2xl md:text-3xl",
+	},
+	{
+		points: 300,
+		question: "Who played the character of the Joker in the Dark Knight?",
+		className:
+			"absolute bottom-[15%] left-[10%] rotate-3 w-64 h-32 md:w-72 md:h-36",
+		textSize: "text-xl md:text-2xl",
+	},
+	{
+		points: 400,
+		question: "What is the rarest Pokémon card in the world?",
+		className:
+			"absolute bottom-[15%] right-[10%] -rotate-4 w-64 h-32 md:w-96 md:h-48",
+		textSize: "text-2xl md:text-3xl",
+	},
+	{
+		points: 500,
+		question: "What is the deepest part of the ocean?",
+		className:
+			"absolute bottom-[5%] left-1/2 -translate-x-1/2 rotate-1 w-64 h-32 md:w-72 md:h-36",
+		textSize: "text-xl md:text-2xl",
+	},
+];
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
-  );
+	return (
+		<div className="w-full h-full flex flex-col items-center justify-center  relative overflow-hidden">
+			<div className="relative z-10 w-screen h-screen flex flex-row items-center bg-background justify-center gap-32 px-8 overflow-hidden border-12 border-black">
+				<GridPattern className="absolute inset-0 z-0 opacity-50" />
+				{STATIC_SHINING_CARD_ITEMS.map((item) => (
+					<StaticShiningCard
+						key={item.points}
+						points={item.points}
+						question={item.question}
+						className={item.className}
+						textSize={item.textSize}
+					/>
+				))}
+				<div className="flex flex-col items-center justify-center gap-4 text-center max-w-xl">
+					<div className="bg-secondary-background px-4 py-2 rounded-full border-2 border-border shadow-[var(--shadow)]">
+						Create 3 games for free - no credit card required
+					</div>
+					<LineShadowText className="text-8xl md:text-9xl font-black">
+						GridLock
+					</LineShadowText>
+					<p className="text-muted-foreground text-lg md:text-xl">
+						Create your own Jeopardy-style trivia game board in seconds.
+					</p>
+					<div className="flex gap-2 items-center">
+						<GetStartedModal />
+						<Button variant="neutral" size="icon" className="gap-2">
+							<Github />
+							<p className="sr-only">Contribute to the project</p>
+						</Button>
+					</div>
+				</div>
+			</div>
+		</div>
+	);
 }
